@@ -1,23 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function ToDoList() {
-  window.onload = () => {
-    setTasks(storageToTasks());
-  };
-
   const storageToTasks = () => {
-    let taskArray = [];
-
-    for (let i = 0; i < localStorage.length; i++) {
-      taskArray.push(localStorage.getItem(localStorage.key(i)));
-    }
-    return taskArray;
+    const storedTasks = localStorage.getItem("tasks");
+    return storedTasks ? JSON.parse(storedTasks) : [];
   };
+  const [tasks, setTasks] = useState(storageToTasks());
 
-  const [tasks, setTasks] = useState([]);
+  // Load tasks from local storage on initial render
+  useEffect(() => {
+    setTasks(storageToTasks());
+  }, []);
+
+  // Update local storage whenever the tasks array changes
+  useEffect(() => {
+    tasksToStorage();
+  }, [tasks]);
+
+  const tasksToStorage = () => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  };
 
   const deleteTask = (index) => {
-    localStorage.removeItem(localStorage.key(index));
     setTasks(tasks.filter((_, i) => i !== index));
   };
 
@@ -27,9 +31,7 @@ function ToDoList() {
 
     document.getElementById("taskField").value = "";
 
-    const newTaskIndex = tasks.length;
-    localStorage.setItem(`Task ${newTaskIndex}`, newTask);
-    setTasks(storageToTasks());
+    setTasks([...tasks, newTask]);
   };
 
   const addTaskByEnter = (event) => {
@@ -47,10 +49,8 @@ function ToDoList() {
     tempTasks[index] = tempTasks[index - 1];
     tempTasks[index - 1] = temp;
 
-    localStorage.setItem(`Task ${index}`, tempTasks[index]);
-    localStorage.setItem(`Task ${index - 1}`, tempTasks[index - 1]);
-
     setTasks(tempTasks);
+    tasksToStorage();
   };
 
   const moveTaskDown = (index) => {
@@ -62,10 +62,8 @@ function ToDoList() {
     tempTasks[index] = tempTasks[index + 1];
     tempTasks[index + 1] = temp;
 
-    localStorage.setItem(`Task ${index}`, tempTasks[index]);
-    localStorage.setItem(`Task ${index + 1}`, tempTasks[index + 1]);
-
     setTasks(tempTasks);
+    tasksToStorage();
   };
 
   return (
