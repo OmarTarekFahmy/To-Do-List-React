@@ -61,11 +61,11 @@ This project is a simple **To-Do List** application built with React. It allows 
 my-react-app/
 ├── public/          # Public assets (e.g., index.html)
 ├── src/             # Source code
-  ├── components/  # Reusable React components
-  ├── App.jsx       # Main application logic
-  ├── main.jsx     # Entry point
+  ├── assets/      
+  ├── App.jsx        # Main application logic
+  ├── main.jsx       # Entry point
   ├── index.css 
-  └── ToDoList.jsx # Main To-Do List component 
+  └── ToDoList.jsx   # Main To-Do List component 
 ```
 
 
