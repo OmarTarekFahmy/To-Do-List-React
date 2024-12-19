@@ -1,0 +1,149 @@
+.counter {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.counter .counter-value {
+  font-size: 3em;
+  text-align: center;
+}
+
+.counter .button {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.5em;
+  color: White;
+  cursor: pointer;
+  background-color: rgb(157, 0, 255);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0px 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.counter .button:hover {
+  background-color: rgb(185, 73, 255);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.color-picker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 20px;
+  font-size: 0.8em;
+  border: 5px rgb(178, 178, 178) solid;
+  border-radius: 40px;
+  transition: 0.06s ease-in;
+}
+
+input[type="color"] {
+  border: 3px solid;
+  border-radius: 20px;
+  appearance: none;
+}
+
+body {
+  background-color: rgb(32, 32, 32);
+}
+
+.to-do-list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: top;
+  padding-top: 30px;
+}
+
+h1 {
+  font-size: 3em;
+  color: white;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: top;
+}
+
+.task {
+  flex: 1;
+  display: flex;
+  text-align: center;
+  width: 700px;
+  margin-bottom: 10px;
+  border: 5px black solid;
+  border-radius: 30px;
+  background-color: rgb(92, 92, 92);
+}
+
+.task-name {
+  flex: 1;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  margin: 15px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.task-button {
+  margin: 10px;
+  border: none;
+  border-radius: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  background-color: transparent;
+  transition: transform 0.2s ease-in-out;
+}
+
+.task-button:hover {
+  transform: scale(1.4);
+  cursor: pointer;
+}
+
+.field-button-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 300px 150px;
+  column-gap: 10px;
+}
+
+.text-field {
+  font-size: 1.2em;
+  margin-top: 20px;
+  text-align: center;
+  width: 300px;
+  max-height: 40px;
+  border: none;
+  border-radius: 10px;
+}
+
+.add-task {
+  background-color: rgb(0, 255, 0);
+  margin: 20px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.add-task:hover {
+  background-color: rgb(0, 192, 19);
+  cursor: pointer;
+}
